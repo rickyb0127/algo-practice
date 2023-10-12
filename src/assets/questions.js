@@ -58,7 +58,7 @@ export const questions = [
           "array": [1, 2, 3, 4, 5, 6, 7, 8, 9],
           "targetSum": 17,
         },
-        "output": [0, 9]
+        "output": [8, 9]
       },
       {
         "input": {
