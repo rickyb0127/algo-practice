@@ -201,30 +201,28 @@ function Question() {
   }
 
   return (
-    <>
-      <div className="px-4 pt-5 main-bg-color text-white">
-        <div className="grid grid-cols-2">
-          <div className="h-[300px] overflow-y-scroll p-[10px]">
-            <h1 className="text-2xl">{ question.title }</h1>
-            <div>
-              {parse(question.text)}
-            </div>
-          </div>
-          <div className="h-[300px] overflow-y-scroll">
-            <button className="bg-blue-500 rounded-sm p-[4px]" onClick={() => runCode()}>Run</button>
-            <CodeMirror
-              value={codeValue}
-              height="200px"
-              width="100%"
-              theme={vscodeDark}
-              extensions={[javascript({ jsx: true })]}
-              onChange={(newVal) => { setCodeValue(newVal) }}
-            />
+    <div className="flex flex-col justify-between px-[10px] pt-[15px] text-white bg-blue-950">
+      <button className="self-end bg-blue-500 rounded-sm p-[8px]" onClick={() => runCode()}>Run Code</button>
+      <div className="flex h-[800px]">
+        <div className="w-[50%] overflow-y-scroll p-[10px]">
+          <h1 className="text-2xl pb-[10px]">{ question.title }</h1>
+          <div>
+            {parse(question.text)}
           </div>
         </div>
-        <div id="iframe-container" className="flex flex-col h-[500px]"></div>
+        <div className="w-[50%] overflow-y-scroll">
+          <CodeMirror
+            value={codeValue}
+            height="800px"
+            width="100%"
+            theme={vscodeDark}
+            extensions={[javascript({ jsx: true })]}
+            onChange={(newVal) => { setCodeValue(newVal) }}
+          />
+        </div>
       </div>
-    </>
+      <div id="iframe-container" className="flex flex-col h-[500px]"></div>
+    </div>
   )
 }
 
